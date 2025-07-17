@@ -1,9 +1,9 @@
-package com.Travell.Application.Service;
+package com.Travell.Application.service;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.Travell.Application.Entity.Contact;
+import com.Travell.Application.entity.Contact;
 
 public interface ContactService {
 	

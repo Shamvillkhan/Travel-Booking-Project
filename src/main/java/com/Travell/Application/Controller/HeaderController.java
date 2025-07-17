@@ -1,11 +1,11 @@
-package com.Travell.Application.Controller;
+package com.Travell.Application.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.Travell.Application.Entity.Contact;
+import com.Travell.Application.entity.Contact;
  
 
 @Controller
@@ -13,7 +13,7 @@ public class HeaderController {
 	
 	@GetMapping("/index")
 	public String index(Model model) {
-		
+		model.addAttribute("contact",new Contact());
 		System.out.println("index calling >>>>>>>>>>>>>><<<<<<<<<<<<<");
 		return "index";
 	}

@@ -1,4 +1,4 @@
-package com.Travell.Application.Entity;
+package com.Travell.Application.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

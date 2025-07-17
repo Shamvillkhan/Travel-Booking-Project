@@ -1,4 +1,4 @@
-package com.Travell.Application.Service;
+package com.Travell.Application.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.Travell.Application.Entity.Contact;
-import com.Travell.Application.Repository.ContactRepository;
+import com.Travell.Application.entity.Contact;
+import com.Travell.Application.repository.ContactRepository;
 
 @Service
 public class ContactServiceImpl implements ContactService {

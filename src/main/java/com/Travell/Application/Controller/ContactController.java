@@ -1,4 +1,4 @@
-package com.Travell.Application.Controller;
+package com.Travell.Application.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.Travell.Application.Entity.Contact;
-import com.Travell.Application.Service.ContactService;
+import com.Travell.Application.entity.Contact;
+import com.Travell.Application.service.ContactService;
 
 @Controller
 @RequestMapping("/contacts")
