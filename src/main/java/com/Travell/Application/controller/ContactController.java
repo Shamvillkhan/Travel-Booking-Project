@@ -22,6 +22,6 @@ public class ContactController {
 	@PostMapping("/save")
 	public String save(@ModelAttribute Contact contact) {
 		contactService.saveContact(contact);
-		return "redirect:/index";
+		return "redirect:/";
 	}
 }
