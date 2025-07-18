@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Package Form</title>
+    <style>
+        form {
+            width: 60%;
+            margin: 30px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background: #f8f8f8;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Package Form</h2>
+
+    <form th:action="@{/packages/save}" th:object="${packages}" method="post">
+        <input type="hidden" th:field="*{packageId}" />
+
+        <label>Destination ID:</label>
+        <input type="number" th:field="*{destinationId}" required />
+
+        <label>Title:</label>
+        <input type="text" th:field="*{title}" required />
+
+        <label>Description:</label>
+        <textarea th:field="*{description}" rows="3"></textarea>
+
+        <label>Price:</label>
+        <input type="number" step="0.01" th:field="*{price}" required />
+
+        <label>Duration (Days):</label>
+        <input type="number" th:field="*{durationDays}" required />
+
+        <label>Start Date:</label>
+        <input type="date" th:field="*{startDate}" required />
+
+        <label>End Date:</label>
+        <input type="date" th:field="*{endDate}" required />
+
+        <button type="submit">Save Package</button>
+    </form>
+
+</body>
+</html>

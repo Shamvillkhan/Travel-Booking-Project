@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Form</title>
+    
+</head>
+<body>
+
+
+
+    <form th:action="@{/destination/save}" th:object="${destination}" method="post">
+        <input type="hidden" th:field="*{destinationId}"/>
+
+        <label>Name:</label>
+        <input type="text" th:field="*{name}" placeholder="Enter name" required/>
+
+        <label>country:</label>
+        <input type="text" th:field="*{country}" placeholder="country" required/>
+
+        <label>description:</label>
+        <input type="text" th:field="*{description}" placeholder="description" required/>
+
+        <label>imageURL:</label>
+        <input type="url" th:field="*{imageURL}" placeholder="ImageURL" required/>
+
+		
+        <input type="submit" value="Save User"/>
+    </form>
+
+</body>
+</html>
+>
