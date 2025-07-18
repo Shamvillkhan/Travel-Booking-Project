@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Destination Table</title>
+    <style>
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #444;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #5f9ea0;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<a href="/destination/form">click</a>
+
+
+    <h2 style="text-align:center;">Destination Details</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>destinationId</th>
+                <th>Name</th>
+                <th>country</th>
+                <th>description</th>
+                <th>imageURL</th>
+            </tr>
+        </thead>
+<tbody>
+            <tr th:each="destination : ${destinationList}">
+                <td th:text="${destination.destinationId}">1</td>
+                <td th:text="${destination.name}">John Doe</td>
+                <td th:text="${destination.country}">john@example.com</td>
+                <td th:text="${destination.description}">1234567890</td>
+                <td th:text="${destination.imageURL}">******</td>
+            </tr>
+        </tbody> 
+    </table>
+</body>
+</html>
