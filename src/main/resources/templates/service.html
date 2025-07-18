@@ -65,7 +65,7 @@
     <section id="services" class="services_area pt-120">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6" >
                     <div class="section_title text-center pb-25">
                         <h3 class="title">Service We Provide</h3>
                         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dianum eirmod tempor invidunt ut labore et dolore magna </p>
@@ -78,9 +78,9 @@
                         <div class="services_icon">
                             <i class="lni lni-apartment"></i>
                         </div>
-                        <div class="services_content">
-                            <h4 class="title">Hotel Booking</h4>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dianum eirmod.</p>
+                        <div class="services_content" th:object="${service1}">
+                            <h4 class="title" th:text="${service1.service}"></h4>
+                            <p th:text="${service1.aboutService}"></p>
                         </div>
                     </div> <!-- single service -->
                 </div>
@@ -89,9 +89,9 @@
                         <div class="services_icon">
                             <i class="lni lni-plane"></i>
                         </div>
-                        <div class="services_content">
-                            <h4 class="title">Flight Booking</h4>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dianum eirmod.</p>
+                        <div class="services_content" th:object="${service2}">
+                            <h4 class="title" th:text="${service2.service}"> </h4>
+                            <p th:text="${service2.aboutService}"></p>
                         </div>
                     </div> <!-- single service -->
                 </div>
@@ -100,9 +100,9 @@
                         <div class="services_icon">
                             <i class="lni lni-ship"></i>
                         </div>
-                        <div class="services_content">
-                            <h4 class="title">Ship Booking</h4>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dianum eirmod.</p>
+                        <div class="services_content" th:object="${service3}">
+                            <h4 class="title" th:text="${service3.service}"> </h4>
+                            <p th:text="${service3.aboutService}"></p>
                         </div>
                     </div> <!-- single service -->
                 </div>
@@ -111,9 +111,9 @@
                         <div class="services_icon">
                             <i class="lni lni-car-alt"></i>
                         </div>
-                        <div class="services_content">
-                            <h4 class="title">Car Booking</h4>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dianum eirmod.</p>
+                        <div class="services_content" th:object="${service4}">
+                            <h4 class="title" th:text="${service4.service}">Car Booking</h4>
+                            <p th:text="${service4.aboutService}"></p>
                         </div>
                     </div> <!-- single service -->
                 </div>

@@ -62,53 +62,30 @@
     <!--====== HEADER PART ENDS ======-->
     
     <!--====== ABOUT PART START ======-->
-  <section id="about" class="about_area pt-130 pb-130">
-        <div class="about_wrapper">
-            <div class="about_image bg_cover" style="background-image: url(assets/images/about_image.jpg)"></div> <!-- about image -->
-            <div class="container">
-                <div class="row justify-content-end">
-                    <div class="col-lg-6">
-                        <div class="about_content">
-                            <div class="section_title" th:object="${abouts}">
-                                <h3 class="title">About Us <br> TraveLand </h3>
-                                <p th:text="${abouts.aboutUs}"></p>
-                            </div> <!-- section title -->
-                            <a href="javascript:void(0)" class="main-btn">Read More</a>
-                        </div> <!-- about content -->
-                        <div class="about_counter d-flex flex-wrap">
-                            <div class="single_counter counter_1 d-flex justify-content-center align-items-center wow fadeInUpBig" data-wow-duration="1.3s" data-wow-delay="0.2s">
-                                <div class="counter_wrapper">
-                                    <span class="counter" th:text="${abouts.tripDone}"></span>
-                                    <p>Trips Done</p>
-                                </div> <!-- single wrapper -->
-                            </div> <!-- single counter -->
-                            
-                            <div class="single_counter counter_2 d-flex justify-content-center align-items-center wow fadeInUpBig" data-wow-duration="1.3s" data-wow-delay="0.5s">
-                                <div class="counter_wrapper">
-                                    <span class="counter" th:text="${abouts.corporateClients}"></span>
-                                    <p>Corporate Clients</p>
-                                </div> <!-- single wrapper -->
-                            </div> <!-- single counter -->
-                            
-                            <div class="single_counter counter_2 d-flex justify-content-center align-items-center wow fadeInUpBig" data-wow-duration="1.3s" data-wow-delay="0.8s">
-                                <div class="counter_wrapper">
-                                    <span class="counter" th:text="${abouts.visitedCountries}"></span>
-                                    <p>Visited Countries</p>
-                                </div> <!-- single wrapper -->
-                            </div> <!-- single counter -->
-                            
-                            <div class="single_counter counter_1 d-flex justify-content-center align-items-center wow fadeInUpBig" data-wow-duration="1.3s" data-wow-delay="1.1s">
-                                <div class="counter_wrapper">
-                                    <span class="counter" th:text="${abouts.teamMembers}"></span>
-                                    <p>Team Members</p>
-                                </div> <!-- single wrapper -->
-                            </div> <!-- single counter -->
-                        </div> <!-- about_counter -->
+ <section id="gallery-detail" class="pt-130 pb-130">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card">
+                    <img class="card-img-top"
+                         th:src="@{'/images/' + ${item.imageName}}"
+                         th:alt="${item.aboutPlace}" />
+                    <div class="card-body">
+                        
+                        <p class="card-text text-center text-muted">
+                            Posted on <span th:text="${#temporals.format(item.postOn, 'dd MMM yyyy HH:mm')}">Date</span>
+                        </p>
+                        <hr />
+                        <p class="card-text text-justify" th:text="${item.aboutPlace}">Description goes here...</p>
+                        <div class="text-center mt-4">
+                            <a th:href="@{/gallery}" class="btn btn-primary">← Back to Gallery</a>
+                        </div>
                     </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- about wrapper -->
-    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <!--====== ABOUT PART ENDS ======-->
     
  

@@ -78,45 +78,44 @@
     <!--====== HEADER PART ENDS ======-->
     
     <!--====== ABOUT PART START ======-->
-  <section id="about" class="about_area pt-130 pb-130">
+   <section id="about" class="about_area pt-130 pb-130">
         <div class="about_wrapper">
             <div class="about_image bg_cover" style="background-image: url(assets/images/about_image.jpg)"></div> <!-- about image -->
             <div class="container">
                 <div class="row justify-content-end">
                     <div class="col-lg-6">
                         <div class="about_content">
-                            <div class="section_title">
-                                <h3 class="title">About Us <br> TraveLand in <span >  Numbers</span></h3>
-                                <h1 th:text="${hello}"></h1>
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dianum eirmod tempor invidunt ut labore et dolore magna aliqyam era sed diam voluptua. At vero eos et accusam etjusto duo dolres etea reb. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+                            <div class="section_title" th:object="${abouts}">
+                                <h3 class="title">About Us <br> TraveLand </h3>
+                                <p th:text="${abouts.aboutUs}"></p>
                             </div> <!-- section title -->
                             <a href="javascript:void(0)" class="main-btn">Read More</a>
                         </div> <!-- about content -->
                         <div class="about_counter d-flex flex-wrap">
                             <div class="single_counter counter_1 d-flex justify-content-center align-items-center wow fadeInUpBig" data-wow-duration="1.3s" data-wow-delay="0.2s">
                                 <div class="counter_wrapper">
-                                    <span class="counter">534</span>
+                                    <span class="counter" th:text="${abouts.tripDone}"></span>
                                     <p>Trips Done</p>
                                 </div> <!-- single wrapper -->
                             </div> <!-- single counter -->
                             
                             <div class="single_counter counter_2 d-flex justify-content-center align-items-center wow fadeInUpBig" data-wow-duration="1.3s" data-wow-delay="0.5s">
                                 <div class="counter_wrapper">
-                                    <span class="counter">424</span>
+                                    <span class="counter" th:text="${abouts.corporateClients}"></span>
                                     <p>Corporate Clients</p>
                                 </div> <!-- single wrapper -->
                             </div> <!-- single counter -->
                             
                             <div class="single_counter counter_2 d-flex justify-content-center align-items-center wow fadeInUpBig" data-wow-duration="1.3s" data-wow-delay="0.8s">
                                 <div class="counter_wrapper">
-                                    <span class="counter">35</span>
+                                    <span class="counter" th:text="${abouts.visitedCountries}"></span>
                                     <p>Visited Countries</p>
                                 </div> <!-- single wrapper -->
                             </div> <!-- single counter -->
                             
                             <div class="single_counter counter_1 d-flex justify-content-center align-items-center wow fadeInUpBig" data-wow-duration="1.3s" data-wow-delay="1.1s">
                                 <div class="counter_wrapper">
-                                    <span class="counter">15</span>
+                                    <span class="counter" th:text="${abouts.teamMembers}"></span>
                                     <p>Team Members</p>
                                 </div> <!-- single wrapper -->
                             </div> <!-- single counter -->
@@ -139,10 +138,10 @@
     <!--====== DESTINATION PART ENDS ======-->
     
     <!--====== SERVICES PART START ======-->
-    <section id="services" class="services_area pt-120">
+     <section id="services" class="services_area pt-120">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6" >
                     <div class="section_title text-center pb-25">
                         <h3 class="title">Service We Provide</h3>
                         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dianum eirmod tempor invidunt ut labore et dolore magna </p>
@@ -155,9 +154,9 @@
                         <div class="services_icon">
                             <i class="lni lni-apartment"></i>
                         </div>
-                        <div class="services_content">
-                            <h4 class="title">Hotel Booking</h4>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dianum eirmod.</p>
+                        <div class="services_content" th:object="${service1}">
+                            <h4 class="title" th:text="${service1.service}"></h4>
+                            <p th:text="${service1.aboutService}"></p>
                         </div>
                     </div> <!-- single service -->
                 </div>
@@ -166,9 +165,9 @@
                         <div class="services_icon">
                             <i class="lni lni-plane"></i>
                         </div>
-                        <div class="services_content">
-                            <h4 class="title">Flight Booking</h4>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dianum eirmod.</p>
+                        <div class="services_content" th:object="${service2}">
+                            <h4 class="title" th:text="${service2.service}"> </h4>
+                            <p th:text="${service2.aboutService}"></p>
                         </div>
                     </div> <!-- single service -->
                 </div>
@@ -177,9 +176,9 @@
                         <div class="services_icon">
                             <i class="lni lni-ship"></i>
                         </div>
-                        <div class="services_content">
-                            <h4 class="title">Ship Booking</h4>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dianum eirmod.</p>
+                        <div class="services_content" th:object="${service3}">
+                            <h4 class="title" th:text="${service3.service}"> </h4>
+                            <p th:text="${service3.aboutService}"></p>
                         </div>
                     </div> <!-- single service -->
                 </div>
@@ -188,9 +187,9 @@
                         <div class="services_icon">
                             <i class="lni lni-car-alt"></i>
                         </div>
-                        <div class="services_content">
-                            <h4 class="title">Car Booking</h4>
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dianum eirmod.</p>
+                        <div class="services_content" th:object="${service4}">
+                            <h4 class="title" th:text="${service4.service}">Car Booking</h4>
+                            <p th:text="${service4.aboutService}"></p>
                         </div>
                     </div> <!-- single service -->
                 </div>

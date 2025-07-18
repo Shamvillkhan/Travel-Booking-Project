@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us Submission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 40px;
+        }
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 15px;
+            display: block;
+        }
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h2>Submit About Us Details</h2>
+    <form th:action="@{/about/save}" th:object="${about}" method="post">
+        
+        <label for="aboutUs">About Us</label>
+        <textarea id="aboutUs" th:field="*{aboutUs}" rows="4" required></textarea>
+
+        <label for="tripDone">Trips Done</label>
+        <input type="text" id="tripDone" th:field="*{tripDone}" required>
+
+        <label for="corporateClients">Corporate Clients</label>
+        <input type="text" id="corporateClients" th:field="*{corporateClients}" required>
+
+        <label for="visitedCountries">Visited Countries</label>
+        <input type="text" id="visitedCountries" th:field="*{visitedCountries}" required>
+
+        <label for="teamMembers">Team Members</label>
+        <input type="text" id="teamMembers" th:field="*{teamMembers}" required>
+
+        <label for="active">Is Active?</label>
+        <select id="active" th:field="*{active}" required>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>
