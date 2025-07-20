@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Submit Review</title>
+  <link th:href="@{/webjars/bootstrap/5.3.0/css/bootstrap.min.css}" rel="stylesheet"/>
+</head>
+<body class="bg-light">
+  <div class="container mt-5">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white">
+        <h2>Submit Review</h2>
+      </div>
+      <div class="card-body">
+        <form th:action="@{/reviews/save}"
+              th:object="${review}"
+              method="post" novalidate>
+          
+
+          <!-- Rating input -->
+          <div class="mb-3">
+            <label class="form-label">Rating (1–5)</label>
+            <input type="number" th:field="*{rating}"
+                   class="form-control" min="1" max="5" required/>
+            <div class="text-danger" th:errors="*{rating}"></div>
+          </div>
+
+          <!-- Comment textarea -->
+          <div class="mb-3">
+            <label class="form-label">Comment</label>
+            <textarea th:field="*{comment}"
+                      class="form-control" rows="4" required></textarea>
+            <div class="text-danger" th:errors="*{comment}"></div>
+          </div>
+
+          <!-- Review date picker -->
+          <div class="mb-3">
+            <label class="form-label">Review Date & Time</label>
+            <input type="datetime-local" th:field="*{reviewDate}"
+                   class="form-control" required/>
+            <div class="text-danger" th:errors="*{reviewDate}"></div>
+          </div>
+
+          <!-- Submit button -->
+          <div class="text-end">
+            <button type="submit" class="btn btn-success">
+              Submit Review
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <script th:src="@{/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Submission</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .form-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            background-color: #fff;
+        }
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #343a40;
+        }
+        .form-label {
+            font-weight: 600;
+        }
+        .btn-submit {
+            background-color: #0d6efd;
+            border: none;
+            padding: 10px 25px;
+            font-weight: 600;
+        }
+        .btn-submit:hover {
+            background-color: #0b5ed7;
+        }
+        .image-preview {
+            max-width: 100%;
+            max-height: 200px;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container">
+        <div class="form-container">
+            <h2 class="form-title"><i class="fas fa-pen-fancy me-2"></i>Create New Blog Post</h2>
+            
+            <form th:action="@{/blogs/save}" th:object="${blog}" method="post" enctype="multipart/form-data">
+                <!-- Hidden field for ID if editing -->
+                <input type="hidden" th:field="*{id}" th:if="${blog != null}">
+                
+                <!-- Title Field -->
+                <div class="mb-4">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" th:field="*{title}" 
+                           placeholder="Enter blog title" required>
+                    <div class="invalid-feedback">Please provide a title.</div>
+                </div>
+                
+                <!-- Image Upload -->
+                <div class="mb-4">
+                    <label for="imageFile" class="form-label">Featured Image</label>
+                    <input class="form-control" type="file" id="imageFile" name="imageFile" 
+                           accept="image/*" onchange="previewImage(this)">
+                    <img id="imagePreview" class="image-preview img-thumbnail" alt="Image preview">
+                    <small class="text-muted">Upload a high-quality image for your blog (JPEG, PNG)</small>
+                </div>
+                
+                <!-- Blog Content -->
+                <div class="mb-4">
+                    <label for="blogContent" class="form-label">Blog Content</label>
+                    <textarea class="form-control" id="blogContent" th:field="*{blog}" 
+                              rows="10" placeholder="Write your blog content here..." required></textarea>
+                    <div class="invalid-feedback">Please provide blog content.</div>
+                </div>
+                
+                <!-- Submit Button -->
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <i class="fas fa-paper-plane me-2"></i>Publish Blog
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Image preview functionality
+        function previewImage(input) {
+            const preview = document.getElementById('imagePreview');
+            const file = input.files[0];
+            const reader = new FileReader();
+            
+            reader.onloadend = function() {
+                preview.src = reader.result;
+                preview.style.display = 'block';
+            }
+            
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = '';
+                preview.style.display = 'none';
+            }
+        }
+        
+        // Form validation
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                const forms = document.getElementsByClassName('needs-validation');
+                Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+</body>
+</html>

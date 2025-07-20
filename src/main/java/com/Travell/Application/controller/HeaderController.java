@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.Travell.Application.entity.Contact;
 import com.Travell.Application.service.AboutService;
+import com.Travell.Application.service.BlogService;
 import com.Travell.Application.service.GalleryService;
 import com.Travell.Application.service.ServiceService;
  
@@ -12,14 +13,15 @@ import com.Travell.Application.service.ServiceService;
 @Controller
 public class HeaderController {
 	
-	
+	private BlogService blogService;
 	private GalleryService galleryService;
 	private ServiceService serviceService;	
 	private AboutService aboutService;
-	public HeaderController(AboutService aboutService,ServiceService serviceService,GalleryService galleryService) {
+	public HeaderController(BlogService blogService,AboutService aboutService,ServiceService serviceService,GalleryService galleryService) {
 		this.aboutService=aboutService;
 		this.serviceService=serviceService;
 		this.galleryService=galleryService;
+		this.blogService=blogService;
 	}
 	
 	@GetMapping("/")
@@ -65,7 +67,8 @@ public class HeaderController {
 	}
 	
 	@GetMapping("/blog")
-	public String blog() {
+	public String blog(Model model) {
+		model.addAttribute("blogs",blogService.getAllBlogs());
 		return "blogs";
 	}
 	@GetMapping("/contact")

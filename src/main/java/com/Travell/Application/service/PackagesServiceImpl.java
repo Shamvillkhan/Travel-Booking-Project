@@ -7,12 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.Travell.Application.entity.Packages;
+import com.Travell.Application.repository.DestinationRepository;
 import com.Travell.Application.repository.PackagesRepository;
 
 import java.util.List;
 
 @Service
 public class PackagesServiceImpl implements PackagesService{
+	private DestinationRepository destinationRepo;
+	
+	public PackagesServiceImpl(DestinationRepository destinationRepo) {
+		this.destinationRepo=destinationRepo;
+	}
 
     @Autowired
     private PackagesRepository repo;
@@ -22,6 +28,7 @@ public class PackagesServiceImpl implements PackagesService{
     }
 
     public void save(Packages p) {
+    	p.setDestination(destinationRepo.getById(1));
         repo.save(p);
     }
 

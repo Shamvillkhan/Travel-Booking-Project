@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,9 +21,10 @@ public class Packages {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "package_id")
 	private Long packageId;
-
-	@Column(name = "destination_id")
-	private Long destinationId;
+	
+	@ManyToOne
+	@JoinColumn(name = "destination_id")
+	private Destination destination;
 
 	@Column(name = "title")
 	private String title;
@@ -46,11 +49,11 @@ public class Packages {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Packages(Long packageId, Long destinationId, String title, String description, BigDecimal price,
+	public Packages(Long packageId, Destination destination, String title, String description, BigDecimal price,
 			int durationDays, LocalDate startDate, LocalDate endDate) {
 		super();
 		this.packageId = packageId;
-		this.destinationId = destinationId;
+		this.destination = destination;
 		this.title = title;
 		this.description = description;
 		this.price = price;
@@ -67,12 +70,12 @@ public class Packages {
 		this.packageId = packageId;
 	}
 
-	public Long getDestinationId() {
-		return destinationId;
+	public Destination getDestination() {
+		return destination;
 	}
 
-	public void setDestinationId(Long destinationId) {
-		this.destinationId = destinationId;
+	public void setDestination(Destination destination) {
+		this.destination = destination;
 	}
 
 	public String getTitle() {
@@ -125,10 +128,13 @@ public class Packages {
 
 	@Override
 	public String toString() {
-		return "Packages [packageId=" + packageId + ", destinationId=" + destinationId + ", title=" + title
+		return "Packages [packageId=" + packageId + ", destination=" + destination + ", title=" + title
 				+ ", description=" + description + ", price=" + price + ", durationDays=" + durationDays
 				+ ", startDate=" + startDate + ", endDate=" + endDate + "]";
 	}
+
+	
+	
 	
 	
 }

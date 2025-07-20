@@ -43,9 +43,6 @@
     <form th:action="@{/packages/save}" th:object="${packages}" method="post">
         <input type="hidden" th:field="*{packageId}" />
 
-        <label>Destination ID:</label>
-        <input type="number" th:field="*{destinationId}" required />
-
         <label>Title:</label>
         <input type="text" th:field="*{title}" required />
 

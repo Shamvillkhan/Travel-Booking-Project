@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>New Booking</title>
+</head>
+<body>
+  <h1>Create Booking</h1>
+  <form th:action="@{/bookings/save}" th:object="${booking}" method="post">
+  
+    <p>
+      <label>Booking Date:
+        <input type="datetime-local" th:field="*{bookingDate}" />
+      </label>
+    </p>
+
+    <p>
+      <label>No. of People:
+        <input type="number" th:field="*{noOfPeople}" />
+      </label>
+    </p>
+
+    <p>
+      <label>Total Amount:
+        <input type="number" th:field="*{totalAmount}" />
+      </label>
+    </p>
+
+    <p>
+      <label>Status:
+        <input type="text" th:field="*{status}" />
+      </label>
+    </p>
+
+    <p>
+      <button type="submit">Save Booking</button>
+    </p>
+  </form>
+</body>
+</html>
